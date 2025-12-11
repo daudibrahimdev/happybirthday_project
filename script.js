@@ -1,22 +1,18 @@
-// --- KODE KHUSUS DEBUGGING (10 DETIK) ---
-// CATATAN: Ganti 10 dengan tanggal ulang tahun asli setelah debugging!
+// ===============================================
+// === TANGGAL ULANG TAHUN ASLI ===
 
-// 1. Ambil waktu sekarang dalam milidetik
-const now = new Date().getTime();
+// Atur Tanggal dan Waktu Target: 12 Desember 2025, jam 00:00:00
+// (Bulan dalam JavaScript dimulai dari 0: Januari=0, Desember=11)
+const targetDate = new Date(2025, 11, 12, 0, 0, 0).getTime(); 
 
-// 2. Tentukan berapa detik yang kamu mau untuk debugging
-const debugSeconds = 10; 
+// ===============================================
 
-// 3. Target waktu adalah waktu sekarang + 10 detik (10000 milidetik).
-const targetDate = now + (debugSeconds * 1000); 
-
-// --- AKHIR KODE DEBUGGING ---
 
 // Ambil semua elemen HTML (Variabel-variabel ini HARUS di luar fungsi)
 const hbdSong = document.getElementById('hbd-song');
 const clappingSound = document.getElementById('clapping-sound'); 
 const container = document.getElementById('countdown-container'); 
-const bgMusic = document.getElementById('bg-music'); // Musik Background
+const bgMusic = document.getElementById('bg-music'); 
 const countdownTimer = document.getElementById('countdown-timer');
 const content = document.getElementById('content');
 const headline = document.getElementById('headline');
@@ -88,13 +84,14 @@ function updateCountdown() {
     if (distance < 0) {
         clearInterval(x); // Hentikan perhitungan
 
-        // --- PENTING: HENTIKAN MUSIK BACKGROUND ---
+        // HENTIKAN MUSIK BACKGROUND
         bgMusic.pause(); 
         bgMusic.currentTime = 0; 
 
-        countdownTimer.style.display = 'none'; // Sembunyikan timer
-        headline.style.display = 'none'; // Sembunyikan judul countdown
-        subtitle.style.display = 'none'; // Sembunyikan subjudul
+        // Sembunyikan semua elemen countdown
+        countdownTimer.style.display = 'none'; 
+        headline.style.display = 'none'; 
+        subtitle.style.display = 'none'; 
         
         // Tampilkan pesan selamat dan tombol "KLIK UNTUK PESTA"
         content.classList.remove('hidden'); 
