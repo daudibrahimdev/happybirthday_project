@@ -1,0 +1,52 @@
+// Atur Tanggal dan Waktu Target
+// Bulan dalam JavaScript dimulai dari 0 (Januari=0, Desember=11)
+// Jadi, 12 Desember 2025 jam 00:00:00 ditulis: 2025, 11, 12
+const targetDate = new Date(2025, 11, 12, 0, 0, 0).getTime(); 
+
+const hbdSong = document.getElementById('hbd-song');
+const countdownTimer = document.getElementById('countdown-timer');
+const content = document.getElementById('content');
+const headline = document.getElementById('headline');
+
+function updateCountdown() {
+    // Ambil waktu sekarang
+    const now = new Date().getTime();
+    
+    // Hitung selisih waktu (dalam milidetik)
+    const distance = targetDate - now;
+
+    // Hitungan matematika untuk Hari, Jam, Menit, Detik
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan hasilnya di HTML
+    document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+    document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+    // Jika hitungan selesai
+    if (distance < 0) {
+        clearInterval(x); // Hentikan perhitungan
+        countdownTimer.style.display = 'none'; // Sembunyikan timer
+        headline.style.display = 'none'; // Sembunyikan judul countdown
+        content.classList.remove('hidden'); // Tampilkan pesan selamat
+
+        // Putar lagu "Happy Birthday"
+        // Catatan: Browser modern membutuhkan interaksi pengguna
+        // (klik, sentuh) sebelum memutar audio secara otomatis.
+        // Tapi, kita tetap coba putar.
+        hbdSong.play().catch(error => {
+            console.log("Audio gagal diputar otomatis:", error);
+            // Kamu bisa menambahkan pesan di layar: "Klik di mana saja untuk memutar lagu!"
+        });
+    }
+}
+
+// Jalankan fungsi updateCountdown setiap 1 detik (1000ms)
+const x = setInterval(updateCountdown, 1000);
+
+// Panggil sekali saat dimuat agar tidak ada jeda 1 detik di awal
+updateCountdown();

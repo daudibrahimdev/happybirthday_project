@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Ulang Tahun Kakak!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="countdown-container">
+        <h1 id="headline">Menuju Ulang Tahun Sarerot</h1>
+
+        <div id="countdown-timer">
+            <div class="time-box">
+                <span id="days">00</span>
+                <span class="label">Hari</span>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <span class="label">Jam</span>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <span class="label">Menit</span>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <span class="label">Detik</span>
+            </div>
+        </div>
+
+        <p id="content" class="hidden">🎉 Selamat Ulang Tahun Kakak Terbaik! 🎉</p>
+    </div>
+
+    <audio id="hbd-song" src="lagu-ultah.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

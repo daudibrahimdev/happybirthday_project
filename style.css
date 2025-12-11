@@ -1,0 +1,107 @@
+/* Aturan dasar dan responsif untuk seluruh halaman */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white; /* Warna teks default */
+    text-align: center;
+    overflow: hidden; /* Mencegah scroll yang tidak perlu */
+}
+
+/* Background Image dan Kontainer Utama */
+#countdown-container {
+    height: 100vh; 
+    width: 100vw; 
+    background-image: url('background.png'); /* GANTI DENGAN NAMA FILE GAMBAR KOLASE KAMU */
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    
+    position: relative;
+}
+
+/* Overlay Gelap agar teks jelas */
+#countdown-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1; 
+}
+
+/* Konten (teks dan timer) harus di atas overlay */
+#headline, #countdown-timer, #content {
+    z-index: 2; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* Judul Utama */
+#headline {
+    font-size: 2.5em; 
+    margin-bottom: 40px;
+}
+
+/* Kotak Waktu */
+#countdown-timer {
+    display: flex;
+    gap: 15px; 
+    flex-wrap: nowrap; 
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.15); 
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 60px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.time-box span {
+    font-size: 2.5em; 
+    font-weight: bold;
+    line-height: 1;
+}
+
+.label {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Pesan Selamat & Tombol */
+#content {
+    font-size: 2em;
+    margin-top: 30px;
+    font-weight: 700;
+}
+.hidden {
+    display: none;
+}
+
+/* --- ANIMASI MERIAH (PULSING) --- */
+@keyframes pulse {
+    0% { transform: scale(1); background-color: rgba(255, 255, 0, 0.1); } 
+    50% { transform: scale(1.03); background-color: rgba(255, 0, 0, 0.1); } 
+    100% { transform: scale(1); background-color: rgba(0, 0, 255, 0.1); } 
+}
+
+.celebrate {
+    animation: pulse 0.5s infinite alternate; 
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 600px) {
+    #headline { font-size: 1.5em; }
+    #countdown-timer { gap: 10px; }
+    .time-box { min-width: 50px; }
+    .time-box span { font-size: 1.8em; }
+    #content { font-size: 1.5em; }
+}
