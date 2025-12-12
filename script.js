@@ -3,7 +3,7 @@
 
 // Atur Tanggal dan Waktu Target: 12 Desember 2025, jam 00:00:00
 // (Bulan dalam JavaScript dimulai dari 0: Januari=0, Desember=11)
-const targetDate = new Date(2025, 11, 12, 0, 0, 0).getTime(); 
+const targetDate = new Date(2026, 2, 12, 0, 0, 0).getTime();
 
 // ===============================================
 

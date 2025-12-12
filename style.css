@@ -12,7 +12,7 @@ body {
 #countdown-container {
     height: 100vh; 
     width: 100vw; 
-    background-image: url('background.png'); /* GANTI DENGAN NAMA FILE GAMBAR KOLASE KAMU */
+    background-image: url('background.jpeg'); /* GANTI DENGAN NAMA FILE GAMBAR KOLASE KAMU */
     background-size: cover; 
     background-position: center; 
     display: flex;
